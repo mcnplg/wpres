@@ -1,0 +1,377 @@
+:root {
+  --primary: #b6895b;
+  --bg: #010101;
+  --secon: #4158d0;
+  --oren: #ff6600;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*agar perhitungan width konsisten*/
+  font-family: "Comic Sans MS", Poppins, cursive, sans-serif;
+  /* font-family:  "Comic Sans MS", cursive, sans-serif; */
+
+  /*tambahan*/
+  outline: none;
+  border: none;
+  text-decoration: none; /*menghilangkan garis bawah tulisan*/
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 221, 187, 0.6),
+    rgba(255, 179, 140, 0.6)
+  );
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-right: 5px solid #ff6600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ff6600;
+  text-shadow: 1px 1px #fff;
+  text-shadow: 1px 1px #000;
+  font-size: 26px;
+  transition: opacity 0.3s;
+}
+
+.sidebar.collapsed h2 {
+  opacity: 0;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: -15px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 5px 8px;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 15px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sidebar button i {
+  font-size: 18px;
+  color: #ff6600;
+  transition: transform 0.3s;
+}
+
+.sidebar button:hover {
+  background-color: #ffcc66;
+  transform: scale(1.05);
+}
+
+.sidebar button:active i {
+  transform: rotate(20deg) scale(1.2);
+}
+
+.sidebar.collapsed button span {
+  display: none;
+}
+
+/* Submenu */
+.submenu {
+  margin-left: 25px;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  animation: slideDown 0.3s ease-in-out;
+}
+
+.submenu button {
+  background-color: #fff8dc;
+  font-size: 14px;
+  border-left: 5px solid #ffa500;
+}
+
+.submenu button:hover {
+  background-color: #ffeeaa;
+  transform: scale(1.03);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Main bar */
+.main {
+  flex: 1;
+  padding: 10px;
+  background:
+    linear-gradient(
+      to bottom,
+      rgb(227, 242, 253, 0.7) /* bagian atas: transparan */,
+      rgba(255, 255, 255, 0.6) /* bagian bawah: agak gelap */
+    ),
+    url("../../assets/img/fotobg.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  /* overflow-y: auto; */
+  overflow-y: visible;
+  transition: margin-left 0.3s;
+  /* text-decoration: none; */
+}
+
+.main h1 {
+  /* margin-bottom: 10px; */
+  color: #ff6600;
+  text-shadow: 1px 1px #fff;
+  text-align: center;
+}
+
+.content {
+  background-color: rgba(240, 248, 255, 0.7);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  /*min-height: 300px;*/
+  height: calc(100% - 80px);
+  transition: all 0.3s;
+  margin-top: 10px; /* sesuaikan dengan tinggi navbar */
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#fullscreenBtn {
+  /*position: fixed;*/
+  position: absolute;
+  bottom: 45px;
+  right: -15px;
+  color: white;
+  border-radius: 50%;
+  padding: 8px 5px;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+#fullscreenBtn:hover {
+  background: #005fa3;
+}
+
+/*tambahan */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3%;
+  height: 70px;
+  margin-bottom: 10px;
+  /* background: linear-gradient(
+    to bottom,
+    rgba(255, 221, 187, 0.6),
+    rgba(255, 179, 140, 0.6)
+  ); */
+  border-radius: 15px;
+  /* background-color: rgb(203, 215, 227); */
+  /* background-color: rgb(255, 175, 140); */
+  background-color: rgb(255, 221, 187);
+  position: sticky; /* GANTI dari fixed ke sticky */
+  /* position: fixed;WAJIB agar tetap di atas */
+  top: 10px;        /*jarak dari atas */
+  /* top: 0; top hanya bekerja kalau ada position: absolute/relative/fixed. jarak dari atas (biar tidak nempel banget) */
+  left: 0; /*nempel di kiri*/
+  right: 0; /*nempel di kanan*/
+  /* border-bottom: 1.5px solid var(--secon); untuk memberi garis di bawah */
+  /* box-shadow: 0 2px 8px var(--secon); */
+  z-index: 1000;/* supaya tidak ketimpa elemen lain */
+  /* text-decoration: none; */
+}
+
+/* navar-nav */
+/* container */
+.navbar .navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+/* logo */
+.navbar .navbar-logo img {
+  width: 50px;
+  transition: all 0.4s ease;
+}
+/* teks */
+.navbar .navbar-logo p {
+  position: relative; /* penting untuk ::after */
+  font-weight: 900;
+  font-size: 1.5rem;
+  /* color: #333; */
+  /* color: var(--oren); */
+  color: #cb0000;
+  transition: all 0.4s ease;
+  font-family: Poppins;
+}
+/* warna span */
+.navbar .navbar-logo span {
+  color: #0077ff;
+  transition: 0.4s;
+  font-family: Poppins;
+}
+/* 🔥 underline hanya di bawah teks */
+.navbar .navbar-logo p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  /* background: linear-gradient(90deg, #0077ff, #00c6ff); */
+  background: linear-gradient(90deg, #0077ff, #ff4d00);
+  transition: width 0.4s ease;
+}
+/* hover trigger dari parent */
+.navbar .navbar-logo:hover p::after {
+  width: 100%;
+}
+/* efek hover */
+.navbar .navbar-logo:hover img {
+  transform: scale(1.1) /*rotate(3deg)*/;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+}
+.navbar .navbar-logo:hover p {
+  color: #000;
+  transform: translateX(3px);
+}
+.navbar .navbar-logo:hover span {
+  color: #00c6ff;
+}
+
+.navbar p {
+  position: relative; /* penting untuk ::after */
+  font-weight: 900;
+  font-size: 1.5rem;
+  font-style: italic;
+  /* color: #333; */
+  /* color: var(--oren); */
+  color: #4d1212;
+  transition: all 0.4s ease;
+  font-family: Poppins;
+  /* background: linear-gradient(90deg, #0077ff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  */
+}
+
+.navbar p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  /* background: linear-gradient(90deg, #0077ff, #00c6ff); */
+  transition: width 0.4s ease;
+}
+
+.navbar p:hover::after {
+  width: 100%;
+}
+
+.navbar p:hover {
+  /* color: #000; */
+  color: #000000;
+  transform: translateX(3px);
+  transform: scale(1.1) /*rotate(3deg)*/;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+}
+/* Navbar-icon */
+.navbar .navbar-icon {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+/* logo */
+.navbar .navbar-icon img {
+  width: 50px;
+  transition: all 0.4s ease;
+  border-radius: 50%;
+}
+
+.navbar .navbar-icon a {
+  color: #333;
+  margin: 0 0.5rem;
+}
+.navbar .navbar-icon a:hover {
+  color: var(--primary);
+}
+
+.navbar .navbar-icon:hover img {
+  transform: scale(1.1) /*rotate(3deg)*/;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+}
+
+.navbar .logmer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* max-width: 100%; */
+  width: 350px;
+  overflow: hidden;
+}
+
+.navbar .logmer img {
+  /* max-width: 100%; tidak melebihi parent */
+  height: auto; menjaga proporsi
+  object-fit: contain; /* memastikan gambar tidak terpotong */
+  display: block;
+  width: 300px;
+  /* height: 200%x; */
+   transition: all 0.4s ease;
+}
+
+.navbar .logmer:hover img {
+  transform: scale(1.1) /*rotate(3deg)*/;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+}
