@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembelajaran Interaktif</title>
+    <link rel="icon" href="assets/img/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Foont -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Feather -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- ✅ SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+      <h2>Menu</h2>
+
+      <!-- ✅ Button Toggle Sidebar -->
+      <div class="toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- ✅ Button Toggle Full Screen -->
+      <button id="fullscreenBtn" onclick="toggleFullScreen()">
+        <i class="fas fa-expand"></i>
+      </button>
+
+      <!-- ✅ Home -->
+      <button onclick="showContent('home')">
+        <i class="fas fa-home"></i> <span>Home</span>
+      </button>
+
+      <!-- ✅ Tujuan Peembelajaran -->
+      <button onclick="toggleSubmenu('submenutp')">
+        <i class="fas fa-bullseye"></i> <span>Tujuan Pembelajaran</span>
+      </button>
+
+      <div class="submenu" id="submenutp">
+        <button onclick="showContent('tpbab3')">
+          <i class="fas fa-file-alt"></i> <span>TP Bab3</span>
+        </button>
+        <button onclick="showContent('tpbab4')">
+          <i class="fas fa-file-alt"></i> <span>TP Bab4</span>
+        </button>
+      </div>
+
+      <!-- ✅ Submenu Materi -->
+      <button onclick="toggleSubmenu('submenuMateri')">
+        <i class="fas fa-clipboard-list"></i> <span>Materi KKA</span>
+      </button>
+
+      <div class="submenu" id="submenuMateri">
+        <button onclick="showContent('videokka')">
+          <i class="fas fa-video"></i> <span>Video Materi</span>
+        </button>
+        <button onclick="showContent('slidematerikkabab3')">
+          <i class="fas fa-file-alt"></i> <span>Slide Bab 3</span>
+        </button>
+        <button onclick="showContent('slidematerikkabab4')">
+          <i class="fas fa-file-alt"></i> <span>Slide Bab 4</span>
+        </button>
+        <button onclick="showContent('bukukka')">
+          <i class="fas fa-file-alt"></i> <span>Buku KKA</span>
+        </button>
+      </div>
+
+      <!-- ✅ Submenu link -->
+      <button onclick="toggleSubmenu('submenuLink')">
+        <i class="fas fa-book"></i> <span>Aplikasi</span>
+      </button>
+      <div class="submenu" id="submenuLink">
+        <button
+          onclick="
+            window.open(
+              'https://studio.code.org/courses/k5-ai-data-2024/units/1/lessons/2/levels/2',
+              '_blank',
+            )
+          "
+        >
+          <i class="fas fa-lightbulb"></i> <span>code.org</span>
+        </button>
+
+        <button onclick="window.open('https://pictoblox.ai', '_blank')">
+          <i class="fas fa-lightbulb"></i> <span>pictoblox.ai</span>
+        </button>
+
+        <button
+          onclick="
+            window.open(
+              'https://scratch.mit.edu/projects/editor/?tutorial=getStarted',
+              '_blank',
+            )
+          "
+        >
+          <i class="fas fa-lightbulb"></i> <span>scracth.mit.edu</span>
+        </button>
+
+        <button onclick="window.open('https://appinventor.mit.edu/', '_blank')">
+          <i class="fas fa-lightbulb"></i> <span>appinventor.mit.edu</span>
+        </button>
+
+        <button onclick="toggleSubmenu('submenuBlockly')">
+          <i class="fas fa-lightbulb"></i> <span>blockly</span>
+        </button>
+        <div class="submenu" id="submenuBlockly">
+          <button onclick="window.open('https://blockly.games/', '_blank')">
+            <i class="fas fa-lightbulb"></i> <span>blockly.games</span>
+          </button>
+          <button
+            onclick="
+              window.open(
+                'https://blockly-demo.appspot.com/static/demos/code/index.html',
+                '_blank',
+              )
+            "
+          >
+            <i class="fas fa-lightbulb"></i> <span>blockly-demo</span>
+          </button>
+        </div>
+
+        <button onclick="window.open('https://chatgpt.com', '_blank')">
+          <i class="fas fa-lightbulb"></i> <span>chatgpt.com</span>
+        </button>
+      </div>
+
+      <!-- ✅ Quiz -->
+      <button onclick="showContent('quiz')">
+        <i class="fas fa-question-circle"></i> <span>Quiz Interaktif</span>
+      </button>
+
+      <!-- ✅ Lembar Kerja Peserta Didik (LKPD) -->
+      <button onclick="toggleSubmenu('submenuLKPD')">
+        <i class="fas fa-file-alt"></i> <span>LKPD</span>
+      </button>
+      <div class="submenu" id="submenuLKPD">
+        <button onclick="showContent('lkpdKelompok')">
+          <i class="fas fa-file-lines"></i> <span>LKPD Kelompok</span>
+        </button>
+        <button onclick="showContent('lkpdIndividu')">
+          <i class="fas fa-user"></i> <span>LKPD Individu</span>
+        </button>
+      </div>
+
+      <!-- ✅ Kesimpulan -->
+      <button onclick="showContent('kesimpulan')">
+        <i class="fas fa-pencil-alt"></i> <span>Kesimpulan</span>
+      </button>
+
+      <!-- ✅ Kesimpulan -->
+      <button onclick="showContent('penutup')">
+        <i class="fas fa-hand-peace"></i> <span>Penutup</span>
+      </button>
+    </div>
+
+    <!-- ✅ MAIN -->
+    <div class="main">
+      <!-- Navbar Section Start -->
+      <nav class="navbar">
+        <a href="#" class="navbar-logo">
+          <img src="assets/img/logo.png" alt="logo" />
+          <p>SDN 75 <span>PALEMBANG</span>.</p>
+        </a>
+        <p>"SEKOLAH TEPAT UNTUK ANAK HEBAT"</p>
+        <div class="logmer">
+          <img src="assets/img/logmertran.png" alt="logo" />
+        </div>
+        <div class="navbar-icon">
+          <!-- <a href="#" id="search"><i data-feather="search"></i></a> -->
+          <img src="assets/img/foto.png" alt="logo" />
+        </div>
+      </nav>
+      <!-- Navbar Section End -->
+
+      <div class="content" id="contentArea"></div>
+    </div>
+
+    <!-- feather icon -->
+    <script>
+      feather.replace();
+    </script>
+    <!-- JS -->
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
