@@ -82,17 +82,37 @@
       <button onclick="toggleSubmenu('submenuLink')">
         <i class="fas fa-book"></i> <span>Aplikasi</span>
       </button>
+
       <div class="submenu" id="submenuLink">
-        <button
-          onclick="
-            window.open(
-              'https://studio.code.org/courses/k5-ai-data-2024/units/1/lessons/2/levels/2',
-              '_blank',
-            )
-          "
-        >
+        <button onclick="toggleSubmenu('submenuCodeOrg')">
           <i class="fas fa-lightbulb"></i> <span>code.org</span>
         </button>
+        <div class="submenu" id="submenuCodeOrg">
+          <button onclick="window.open('https://blockly.games/', '_blank')">
+            <i class="fas fa-lightbulb"></i> <span>Game Coding</span>
+          </button>
+          <button
+            onclick="
+              window.open(
+                'https://studio.code.org/courses/k5-ai-data-2024/units/1/lessons/2/levels/2',
+                '_blank',
+              )
+            "
+          >
+            <i class="fas fa-lightbulb"></i> <span>Simulasi Bab 3</span>
+          </button>
+
+          <button
+            onclick="
+              window.open(
+                'https://studio.code.org/courses/k5-ai-data-2024/units/1/lessons/1/levels/1',
+                '_blank',
+              )
+            "
+          >
+            <i class="fas fa-lightbulb"></i> <span>Game Bab 4</span>
+          </button>
+        </div>
 
         <button onclick="window.open('https://pictoblox.ai', '_blank')">
           <i class="fas fa-lightbulb"></i> <span>pictoblox.ai</span>
