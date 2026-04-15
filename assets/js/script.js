@@ -38,7 +38,7 @@ const contentData = {
 
   slidematerikkabab3: `<iframe src="pages/materi/slidekkabab3.html" width="100%" height="100%" frameborder="0"></iframe>`,
   slidematerikkabab4: `<iframe src="pages/materi/slidekkabab4.html" width="100%" height="100%" frameborder="0"></iframe>`,
-
+  modulAjar: `<iframe src="assets/pdf/modulAjar.pdf" width="100%" height="100%" frameborder="0"></iframe>`,
   bukukka: `<iframe src="assets/pdf/bukukka.pdf" width="100%" height="100%" frameborder="0"></iframe>`,
 
   quiz: `<iframe src="pages/quiz.html" width="100%" height="100%" frameborder="0"></iframe>`,
